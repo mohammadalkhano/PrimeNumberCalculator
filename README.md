@@ -6,7 +6,7 @@
 
  <h1 align="center"> :mag_right: Table of Content </h1>
  
-<h2>Uppgift 1 – Primtal</h2>
+<h2>Datalogi - Uppgift 1</h2>
 
 
 <h2>Uppgiftsbeskrivning</h2>

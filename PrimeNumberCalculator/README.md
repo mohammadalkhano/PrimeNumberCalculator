@@ -21,10 +21,4 @@
  mohammad.alkhano@gmail.com <br />
  </p>
 
- <hr>
-
- <h1 align="center"> :heartpulse: How can you contribute? </h1>
-
- <hr>
-
  <h1 align="center"> :question: F.A.Q </h1>

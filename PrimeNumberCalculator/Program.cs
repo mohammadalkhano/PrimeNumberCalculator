@@ -6,7 +6,9 @@ namespace PrimeNumberCalculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string userInput = Console.ReadLine();
+            PrimeNumber.CheckInput(userInput);
+            Console.Read();
         }
     }
 }

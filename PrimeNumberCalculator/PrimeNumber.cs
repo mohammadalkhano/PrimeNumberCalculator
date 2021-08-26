@@ -11,8 +11,9 @@ namespace PrimeNumberCalculator
         // static string userInput;
         static int parsedNumber;
         static bool isPrime;
-        private static List<int> primeNumbers;
+
         private static bool inputType;
+        public static List<int> primeNumbers = new List<int>();
 
 
         public static int CheckInput(string userInput)
@@ -20,19 +21,26 @@ namespace PrimeNumberCalculator
             if (!string.IsNullOrEmpty(userInput))
             {
                 //Here should I use try catch statment.
-                var intInput=Convert.ToInt32(userInput);
-                Int32.TryParse(userInput, out parsedNumber);
-                inputType = userInput.GetType() == typeof(int);
+                int intInput = Convert.ToInt32(userInput);
+                Console.WriteLine(userInput.GetType());
+                //Int32.TryParse(userInput, out parsedNumber);
+                inputType = intInput.GetType() != typeof(int);
                 if (inputType)
                 {
                     Console.WriteLine("”wrong type of input, requires a number, please try again”");
                 }
+                else if (inputType.GetType()==typeof(string))
+                {
+                    Console.WriteLine("You have not entered a number, please try again ");
+                }
                 else
                 {
+                    parsedNumber = intInput;
                     CheckNumber();
-                    Console.WriteLine(userInput.GetType().ToString());
                     if (isPrime)
                     {
+                        Console.WriteLine("\t" + userInput + " Is a prime number");
+                        //primeNumbers.Add(4);
                         primeNumbers.Add(parsedNumber);
                     }
                 }
@@ -52,7 +60,7 @@ namespace PrimeNumberCalculator
         /// <returns>False Or True</returns>
         private static bool CheckNumber()
         {
-            if (parsedNumber == 0 && parsedNumber % parsedNumber != 0 && parsedNumber % 2 != 0)
+            if (parsedNumber != 0 && parsedNumber % parsedNumber != 0 && parsedNumber % 2 != 0)
             {
                 isPrime = false;
             }

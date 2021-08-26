@@ -6,8 +6,14 @@ namespace PrimeNumberCalculator
     {
         static void Main(string[] args)
         {
-            string userInput = Console.ReadLine();
-            PrimeNumber.CheckInput(userInput);
+            while (true)
+            {
+                Console.Write("Please input a number to check if it a prime number...");
+                string userInput = Console.ReadLine();
+                PrimeNumber.CheckInput(userInput);
+
+            }
+
             Console.Read();
         }
     }

@@ -10,7 +10,7 @@ namespace PrimeNumberCalculator
             {
                 Console.Write("Please input a number to check if it a prime number...");
                 string userInput = Console.ReadLine();
-                PrimeNumber.CheckInput(userInput);
+                PrimeNumber.NotifyUser(userInput);
 
             }
 

@@ -8,7 +8,6 @@ namespace PrimeNumberCalculator
 {
     public class PrimeNumber
     {
-
         static int convertedInput;
         static bool isPrime;
         private static bool inputType = false;
@@ -27,7 +26,7 @@ namespace PrimeNumberCalculator
                 try
                 {
                     convertedInput = int.Parse(userInput);
-                    
+
                     //Int32.TryParse(userInput, out convertedInput);
                     //inputType = convertedInput.GetType() != typeof(int);
                     if (convertedInput == 0 || convertedInput == 1)
@@ -62,7 +61,7 @@ namespace PrimeNumberCalculator
             }
             else
             {
-                Console.WriteLine("Please enter a number");
+                Console.WriteLine("Please enter a number, You did not input anythink!");
             }
 
         }
@@ -89,15 +88,23 @@ namespace PrimeNumberCalculator
         ///Prints list of numbers. 
         /// </summary>
         /// <param name="numbars"></param>
-        private static void Print()
+        public static void Print()
         {
-            Console.WriteLine("Prime numbers list: ");
-            foreach (var number in primeNumbers)
+            if (primeNumbers.Count == 0)
             {
-                Console.WriteLine(" " + number);
+                Console.WriteLine("The list is empty! You did not input any prime number before!");
             }
-        }
+            else
+            {
+                Console.WriteLine("Prime numbers list: ");
+                foreach (var number in primeNumbers)
+                {
+                    Console.WriteLine(" " + number);
+                }
 
+            }
+
+        }
 
     }
 }

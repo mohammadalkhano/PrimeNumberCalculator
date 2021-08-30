@@ -8,9 +8,9 @@ namespace PrimeNumberCalculator
         {
             while (true)
             {
-                Console.Write("Please input a number to check if it a prime number...");
+                Console.Write("Please input a number to check if it a prime number: ");
                 string userInput = Console.ReadLine();
-                PrimeNumber.NotifyUser(userInput);
+                PrimeNumber.CheckInput(userInput);
 
             }
 

@@ -75,7 +75,6 @@ namespace PrimeNumberCalculator
             }
 
         }
-
         /// <summary>
         /// Checks the number if it is prime!
         /// </summary>
@@ -103,22 +102,29 @@ namespace PrimeNumberCalculator
         /// </summary>
         public static int CheckNextPrime()
         {
-            Sort();
-            int nextNumber = 0;
-            var highestPrimeNumber = primeNumbers[primeNumbers.Count - 1] + 1;
-            for (nextNumber = highestPrimeNumber; nextNumber < 1000; nextNumber++)
+            int nextPrime = 0;
+            if (primeNumbers.Count > 0)
             {
-                if (CheckNumber(nextNumber))
+                Sort();
+                
+                var highestPrimeNumber = primeNumbers[primeNumbers.Count - 1] + 1;
+                for (int nextNumber = highestPrimeNumber; nextNumber < 1000000; nextNumber++)
                 {
-                    primeNumbers.Add(nextNumber);
-
+                    if (CheckNumber(nextNumber))
+                    {
+                        nextPrime = nextNumber;
+                        break;
+                    }
                 }
-                break;
-
             }
-            return nextNumber;
+            else
+            {
+                nextPrime = 2;
+            }           
+            primeNumbers.Add(nextPrime);
+            return nextPrime;
 
-        }       
+        }
 
         /// <summary>
         /// Sorts list of numbers.<br/>

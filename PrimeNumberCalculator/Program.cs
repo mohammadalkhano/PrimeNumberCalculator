@@ -8,7 +8,7 @@ namespace PrimeNumberCalculator
         {
 
             Program.StartControll();           
-            Console.Read();
+            
         }
         /// <summary>
         /// Start up method to controll and communicate with the user and the program  .
@@ -16,8 +16,8 @@ namespace PrimeNumberCalculator
         private static void StartControll()
         {
 
-            bool wontsToCalculate = true;
-            while (wontsToCalculate)
+            bool wantToCalculate = true;
+            while (wantToCalculate)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.White;
@@ -35,11 +35,11 @@ namespace PrimeNumberCalculator
                     int input = int.Parse(Console.ReadLine());
                     if (input == 1)
                     {
-                        wontsToCalculate = true;
+                        wantToCalculate = true;
                     }
                     else if (input == 2)
                     {
-                        wontsToCalculate = false;
+                        wantToCalculate = false;
                         break;
                     }
                     else if (input == 3)
@@ -49,8 +49,9 @@ namespace PrimeNumberCalculator
                     }
                     else if (input == 4)
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
                         var nextNumber = PrimeNumber.CheckNextPrime();
-                        Console.WriteLine(nextNumber);
+                        Console.WriteLine($"The next prime number is {nextNumber}");
                         goto choices;
                     }
                     else

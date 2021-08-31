@@ -6,15 +6,16 @@ namespace PrimeNumberCalculator
     {
         static void Main(string[] args)
         {
-            
-            Program.StartControll();
+
+            Program.StartControll();           
+            Console.Read();
         }
         /// <summary>
         /// Start up method to controll and communicate with the user and the program  .
         /// </summary>
         private static void StartControll()
         {
-           
+
             bool wontsToCalculate = true;
             while (wontsToCalculate)
             {
@@ -25,12 +26,12 @@ namespace PrimeNumberCalculator
 
                 string userInput = Console.ReadLine();
                 PrimeNumber.CheckInput(userInput);
-                choices:
+            choices:
                 try
                 {
-                    
+
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.WriteLine("\n\nDo you wont to calculate new number?\n Press [1] Yes\n Press [2] No \n Press [3] if you wont to print all inputed Prime Numbers");
+                    Console.WriteLine("\n\nDo you wont to calculate new number?\n Press [1] Yes\n Press [2] No \n Press [3] if you wont to print all inputed Prime Numbers\n Press [4] To check next prime number");
                     int input = int.Parse(Console.ReadLine());
                     if (input == 1)
                     {
@@ -44,19 +45,25 @@ namespace PrimeNumberCalculator
                     else if (input == 3)
                     {
                         PrimeNumber.Print();
-                        //wontsToCalculate = false;
+                        goto choices;
+                    }
+                    else if (input == 4)
+                    {
+                        var nextNumber = PrimeNumber.CheckNextPrime();
+                        Console.WriteLine(nextNumber);
+                        goto choices;
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("Invalid choose!, Please choose [1],[2] or [3]");
+                        Console.WriteLine("Invalid choose!, You have four choices [1],[2],[3] or [4]");
                         goto choices;
                     }
                 }
                 catch (Exception e)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("Invalid choose!, Please choose [1],[2] or [3]");
+                    Console.WriteLine("Invalid choose!, You have four choices [1],[2],[3] or [4]");
                     goto choices;
 
                 }
@@ -64,5 +71,6 @@ namespace PrimeNumberCalculator
 
             }
         }
+               
     }
 }

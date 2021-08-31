@@ -31,10 +31,12 @@ namespace PrimeNumberCalculator
                     //inputType = convertedInput.GetType() != typeof(int);
                     if (convertedInput == 0 || convertedInput == 1)
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("\tOBS 1 and 0 is not prime numbers");
                     }
                     else if (inputType.GetType() == typeof(string))
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("\tYou have not entered a number, please try again ");
                     }
                     else
@@ -42,12 +44,14 @@ namespace PrimeNumberCalculator
                         CheckNumber();
                         if (isPrime)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
                             Console.WriteLine("\t" + userInput + " Is a prime number");
                             //primeNumbers.Add(4);
                             primeNumbers.Add(convertedInput);
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.WriteLine("\t" + userInput + " Is not a prime number");
                         }
                     }
@@ -55,6 +59,7 @@ namespace PrimeNumberCalculator
                 }
                 catch (Exception)
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("\tOBS wrong type of input, requires a number, please try again");
                 }
 
@@ -75,11 +80,11 @@ namespace PrimeNumberCalculator
         {
             if (convertedInput % convertedInput == 0 && convertedInput % 2 == 0)
             {
-                isPrime = true;
+                isPrime = false;
             }
             else
             {
-                isPrime = false;
+                isPrime = true;
             }
             return isPrime;
 
@@ -92,6 +97,7 @@ namespace PrimeNumberCalculator
         {
             if (primeNumbers.Count == 0)
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("The list is empty! You did not input any prime number before!");
             }
             else
